@@ -1,3 +1,5 @@
+// This section demonstrates various button variants using the Button component.
+
 import { Button } from "@/components/ui/button";
 
 const ButtonsPage = () => {
