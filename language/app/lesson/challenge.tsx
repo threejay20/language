@@ -1,9 +1,9 @@
-import { challengeOptions, challenges } from "@/db/schema";
 import { cn } from "@/lib/utils";
+import { challengeOptions, challenges } from "@/db/schema";
 
 import { Card } from "./card";
 
-type ChallengeProps = {
+type Props = {
   options: (typeof challengeOptions.$inferSelect)[];
   onSelect: (id: number) => void;
   status: "correct" | "wrong" | "none";
@@ -19,7 +19,7 @@ export const Challenge = ({
   selectedOption,
   disabled,
   type,
-}: ChallengeProps) => {
+}: Props) => {
   return (
     <div
       className={cn(

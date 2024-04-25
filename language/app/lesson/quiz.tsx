@@ -12,7 +12,7 @@ type Props = {
   initialLessonId: number;
   initialLessonChallenges: (typeof challenges.$inferSelect & {
     completed: boolean;
-    challengeOtions: (typeof challengeOptions.$inferSelect)[];
+    challengeOptions: (typeof challengeOptions.$inferSelect)[];
   })[];
 
   userSubscription: any;
@@ -36,7 +36,7 @@ export const Quiz = ({
   });
 
   const challenge = challenges[activeIndex];
-  const options = challenge?.challengeOtions ?? [];
+  const options = challenge?.challengeOptions ?? [];
 
   const title =
     challenge.type === "ASSIST"
