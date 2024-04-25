@@ -1,11 +1,12 @@
 import { challengeOptions, challenges } from "@/db/schema";
 import { cn } from "@/lib/utils";
+
 import { Card } from "./card";
 
-type Props = {
+type ChallengeProps = {
   options: (typeof challengeOptions.$inferSelect)[];
   onSelect: (id: number) => void;
-  status: "correct" | "incorrect" | "none";
+  status: "correct" | "wrong" | "none";
   selectedOption?: number;
   disabled?: boolean;
   type: (typeof challenges.$inferSelect)["type"];
@@ -18,7 +19,7 @@ export const Challenge = ({
   selectedOption,
   disabled,
   type,
-}: Props) => {
+}: ChallengeProps) => {
   return (
     <div
       className={cn(
@@ -34,7 +35,7 @@ export const Challenge = ({
           id={option.id}
           text={option.text}
           imageSrc={option.imageSrc}
-          shortcut={`${i + 1} `}
+          shortcut={`${i + 1}`}
           selected={selectedOption === option.id}
           onClick={() => onSelect(option.id)}
           status={status}
